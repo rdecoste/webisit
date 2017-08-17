@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- Rachel’s personality quiz with 3 questions. Version B.  -->
+<html>
+<head>
+<script>
+function ProcessQuizQuestions()
+{
+    var form_input_age = document.getElementById("age").value;
+    var form_input_color = document.getElementById("colors").value;
+    var form_input_siblings = document.getElementById("siblings").value;
+	
+    
+    // put a sentence in the space for question 1
+    if (form_input_age == "young" || form_input_age == "medium" )
+    {  // we can assume the user is aged 0 to 17 
+    	document.getElementById("quiz_prediction1").innerHTML = 
+        "after you picked from the age drop-down list, I categorized you as underage." ;       } 
+    else 
+    { // we can assume the user is aged 18 or older
+    	document.getElementById("quiz_prediction1").innerHTML = 
+          "after you picked from the age drop-down list, I categorized you as over 18." ;   
+    }
+
+    // put a sentence in the space for question 2    
+    if (form_input_color == "fire")
+    {
+    	document.getElementById("quiz_prediction2").innerHTML = 
+        	"Based on  your fave color, your personality is lively and full of fire.";    
+    } 
+    else if (form_input_color == "calm") 
+    {
+    	document.getElementById("quiz_prediction2").innerHTML = 
+        	"Based on  your fave color, your personality is cool under pressure.";
+
+    } 
+    else //comment this means the user picked GREEN and they are greedy
+    {
+    	document.getElementById("quiz_prediction2").innerHTML = 
+        	"Based on  your fave color, your personality is focused on greed and money.";
+    
+	}    
+
+    // put a sentence in the space for question 3   
+    if (form_input_siblings == "0")
+    {
+    	document.getElementById("quiz_prediction3").innerHTML = 
+        	"Since you are an only child, I will assume you are spoiled."; 
+	} 
+    else 
+    {
+        	document.getElementById("quiz_prediction3").innerHTML = 
+        	"You get along with your siblings, except when you don't."; 
+    }
+
+    document.getElementById("quiz_prediction_conclusion").innerHTML = 
+        	"Am I right?"; 
+
+
+}
+
+</script>
+</head>
+<body>
+
+<h2>Rachel's Quiz</h2>
+
+Please answer the following 3 questions:<br><br>
+<form>
+1. What is your age? <select id="age" name="age">
+  <option value="young">under age 13</option>
+  <option value="medium">age 13-17</option>
+  <option value="old">age 18 or older</option>
+</select>
+
+<br><br>
+
+2. What is your fave color?
+<select id="colors" name="colors">
+  <option value="fire">red</option>
+  <option value="calm">blue</option>
+  <option value="money">green</option>
+</select>
+
+<br><br>
+
+2. How many siblings do you have (type a digit)?
+<input type=text id="siblings" name="siblings">
+
+<br><br>
+<button type="button"
+onclick="ProcessQuizQuestions()">Submit Quiz!</button>
+
+</form>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p id="quiz_prediction1">This line will predict your personality based on the question 1.</p>
+<p id="quiz_prediction2">This line will predict your personality based on the question 2.</p>
+<p id="quiz_prediction3">This line will predict your personality based on the question 3.</p>
+
+<p id="quiz_prediction_conclusion">$</p>
+</body>
+</html> 
+
+
+
+
